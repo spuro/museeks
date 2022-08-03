@@ -98,6 +98,7 @@ class Player {
 
   setTrack(track: Track) {
     this.track = track;
+    console.log(track);
     this.audio.src = utils.parseUri(track.path);
 
     // When we change song, need to update the thresholdReached indicator.

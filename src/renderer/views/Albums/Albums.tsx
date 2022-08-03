@@ -44,9 +44,6 @@ const Albums: React.FC = () => {
   const getLibraryComponent = useMemo(() => {
     const { playerStatus } = player;
 
-    const trackPlayingId =
-      player.queue.length > 0 && player.queueCursor !== null ? player.queue[player.queueCursor]._id : null;
-
     // Loading library
     if (library.loading) {
       return (

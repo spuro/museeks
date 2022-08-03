@@ -50,5 +50,5 @@ export const sortIntoAlbums = (tracks: TrackModel[]): AlbumModel[] => {
  */
 export const getStatus = (tracks: TrackModel[]): string => {
   const status = utils.parseDuration(tracks.map((d) => d.duration).reduce((a, b) => a + b, 0));
-  return `${tracks.length} tracks, ${status}`;
+  return `${tracks.length} tracks [Across ${sortIntoAlbums(tracks).length} albums], ${status}`;
 };

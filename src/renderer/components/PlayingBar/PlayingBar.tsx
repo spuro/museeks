@@ -55,7 +55,7 @@ export default class PlayingBar extends React.Component<Props, State> {
     });
 
     if (queueCursor === null) return null;
-
+    
     const trackPlaying = queue[queueCursor];
 
     return (

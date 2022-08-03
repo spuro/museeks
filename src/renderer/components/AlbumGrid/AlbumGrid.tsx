@@ -16,7 +16,7 @@ import * as QueueActions from '../../store/actions/QueueActions';
 
 import { isLeftClick, isRightClick } from '../../lib/utils-events';
 import { isCtrlKey, isAltKey } from '../../lib/utils-platform';
-import { PlaylistModel, TrackModel, PlayerStatus, AlbumModel } from '../../../shared/types/museeks';
+import { PlaylistModel, TrackModel, PlayerStatus, AlbumModel, Track } from '../../../shared/types/museeks';
 import { RootState } from '../../store/reducers';
 
 import scrollbarStyles from '../CustomScrollbar/CustomScrollbar.module.css';
@@ -31,6 +31,8 @@ import Button from 'src/renderer/elements/Button/Button';
 import Albums from 'src/renderer/views/Albums/Albums';
 //import Albums from 'src/renderer/views/Albums/Albums';
 
+import { config } from 'src/renderer/lib/app';
+
 import { fetchCover } from 'src/shared/lib/utils-cover';
 
 const { shell } = electron;
@@ -43,6 +45,25 @@ const TILE_HEIGHT = ROW_HEIGHT * CHUNK_LENGTH;
 // --------------------------------------------------------------------------
 // TrackList
 // --------------------------------------------------------------------------
+
+// Stolen from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array :)
+function shuffle(array:TrackModel[]) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
 
 interface Props {
   type: string;
@@ -80,7 +101,11 @@ class AlbumTile extends React.Component<TileProps, TileState>{
 
   async playAlbum(){
     QueueActions.clear();
-    QueueActions.setQueue(this.props.tracks);
+    if (config.get('audioShuffle')) {
+      QueueActions.setQueue(shuffle(this.props.tracks));
+    } else {
+      QueueActions.setQueue(this.props.tracks);
+    }
     QueueActions.start(0);
   }
 
