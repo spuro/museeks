@@ -130,7 +130,6 @@ class AlbumTile extends React.Component<TileProps, TileState>{
     this.setState({ coverPath });
   }
 
-
   render() {
     if (this.state.coverPath) {
       const coverPath = encodeURI(this.state.coverPath).replace(/'/g, "\\'").replace(/"/g, '\\"');
@@ -141,8 +140,8 @@ class AlbumTile extends React.Component<TileProps, TileState>{
         </div>
     }
     return (
-      <div className={`${styles.albumTile} isEmpty`}>
-        <div className={styles.cover__note} onClick={this.onClick}>♪</div>
+      <div className={`${styles.albumTile} ${styles.isEmpty}`} onClick={this.onClick}>
+        <p>{this.props.albumName}</p>
       </div>
     );
   }

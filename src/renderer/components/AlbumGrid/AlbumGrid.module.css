@@ -5,13 +5,31 @@
 }
 
 .albumTile{
+  display: flex;
   height: 200px;
   width: 200px;
+  align-items: center;  
 }
 
 .albumTile img{
   height: 200px;
   width: 200px;
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+}
+
+.isEmpty{
+  height: 200px;
+  width: 200px;
+
+  text-align: center;
+
+  background-color: rgba(0,0,0,0.3);
+}
+
+.isEmpty p{
+  font-size: 1.25rem;
+  color: white;
+  width:100%;
 }
 
 .header{
