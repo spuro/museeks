@@ -54,6 +54,16 @@ const Footer: React.FC = () => {
             <Icon name='align-justify' fixedWidth />
           </NavLink>
           <NavLink
+            to='/albums'
+            className={({ isActive }) =>
+              `${styles.footer__navigation__link} ${isActive && styles.footer__navigation__linkIsActive}`
+            }
+            title='Albums'
+            draggable={false}
+          >
+            <Icon name='coffee' fixedWidth />
+          </NavLink>
+          <NavLink
             to='/playlists'
             className={({ isActive }) =>
               `${styles.footer__navigation__link} ${isActive && styles.footer__navigation__linkIsActive}`

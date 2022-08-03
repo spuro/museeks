@@ -9,6 +9,7 @@ import history from './lib/history';
 // Views
 import App from './App';
 import LibraryView from './views/Library/Library';
+import AlbumView from './views/Albums/Albums';
 import PlaylistsView from './views/Playlists/Playlists';
 import SettingsView from './views/Settings/Settings';
 import SettingsLibrary from './views/Settings/SettingsLibrary';
@@ -29,6 +30,7 @@ const Router: React.FC = () => {
       <App>
         <Routes>
           <Route path='/library' element={<LibraryView />} />
+          <Route path='/albums' element={<AlbumView />} />
           <Route path='/settings' element={<SettingsView />}>
             <Route path='library' element={<SettingsLibrary library={library} />} />
             <Route path='interface' element={<SettingsUI config={conf} />} />

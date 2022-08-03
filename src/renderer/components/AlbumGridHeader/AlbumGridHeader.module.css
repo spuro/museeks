@@ -1,0 +1,12 @@
+.albumGridHeader {
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  width: 25%;
+  height: 30px;
+  align-self: center;
+  align-items: center;
+}
+
+.slider{
+  width: 100%;
+}

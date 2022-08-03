@@ -1,0 +1,47 @@
+.albumGrid{
+  width:max-content;
+  height:max-content;
+  padding-bottom: 3rem;
+}
+
+.albumTile{
+  height: 200px;
+  width: 200px;
+}
+
+.albumTile img{
+  height: 200px;
+  width: 200px;
+}
+
+.header{
+  display: flex;
+  width:100vw;
+  height: 50px;
+  align-content: center;
+}
+
+.individualTile:hover{
+
+}
+
+.slider {
+
+}
+
+.albumTitle{
+  align-self: flex-end;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  position: relative;
+}
+
+
+.gridContainer{
+  width: 100vw;
+  display: flex;
+  align-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

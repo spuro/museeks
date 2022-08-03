@@ -96,11 +96,17 @@ export interface Playlist {
   importPath?: string; // associated m3u file
 }
 
+export interface Album {
+  albumName: string,
+  tracks: TrackModel[]
+}
+
 /**
  * Database schemes
  */
 export type TrackModel = LinvoSchema<Track>;
 export type PlaylistModel = LinvoSchema<Playlist>;
+export type AlbumModel = Album;
 
 /**
  * Editable track fields (via right-click -> edit track)

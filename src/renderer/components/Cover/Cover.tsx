@@ -1,4 +1,5 @@
 import React from 'react';
+import internal from 'stream';
 
 import * as coverUtils from '../../../shared/lib/utils-cover';
 

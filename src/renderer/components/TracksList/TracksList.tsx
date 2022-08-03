@@ -484,7 +484,7 @@ const TracksList: React.FC<Props> = (props) => {
   }, [tilesScrolled, renderView]);
 
   const trackTiles = useMemo(() => {
-    const tracksChunked = chunk(tracks, CHUNK_LENGTH);
+    const tracksChunked = chunk(tracks, CHUNK_LENGTH);  
 
     return tracksChunked.splice(tilesScrolled, TILES_TO_DISPLAY).map((tracksChunk, indexChunk) => {
       const list = tracksChunk.map((track, index) => {

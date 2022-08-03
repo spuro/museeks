@@ -60,8 +60,8 @@ export default class PlayingBar extends React.Component<Props, State> {
 
     return (
       <div className={styles.playingBar}>
-        <div className={styles.playingBar__cover}>
-          <Cover path={trackPlaying.path} />
+        <div style={{ height: '45px', width: '45px', padding: '0', margin: '0'}} className={styles.playingBar__cover}>
+          <Cover path={trackPlaying.path}/>
         </div>
         <PlayingBarInfos trackPlaying={trackPlaying} shuffle={shuffle} repeat={repeat} />
         <div className={styles.playingBar__queue}>

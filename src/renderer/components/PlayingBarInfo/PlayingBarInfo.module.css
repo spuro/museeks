@@ -86,6 +86,7 @@
   height: 5px;
   margin-bottom: 0;
   margin-top: 3px;
+  margin-left: 5px;
   cursor: pointer;
 
   .progressBar {

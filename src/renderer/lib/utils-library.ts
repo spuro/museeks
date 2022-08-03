@@ -1,5 +1,6 @@
+import { current } from '@reduxjs/toolkit';
 import orderBy from 'lodash-es/orderBy';
-import { TrackModel } from '../../shared/types/museeks';
+import { TrackModel, AlbumModel } from '../../shared/types/museeks';
 import * as utils from './utils';
 
 /**
@@ -24,6 +25,25 @@ export const filterTracks = (tracks: TrackModel[], search: string): TrackModel[]
 export const sortTracks = (tracks: TrackModel[], sort: any[]): TrackModel[] => {
   return orderBy(tracks, ...sort);
 };
+
+/*
+  Sorts the tracks into albums and exports AlbumModel[] type
+*/
+export const sortIntoAlbums = (tracks: TrackModel[]): AlbumModel[] => {
+  const uniqueAlbums = [...new Set(tracks.map(track => track.album))];
+  let albums:AlbumModel[] = [];
+  
+  for (let index = 0; index < uniqueAlbums.length; index++) {
+    let currentAlbum:AlbumModel = {
+      albumName: uniqueAlbums[index],
+      tracks: tracks.filter((track) => {
+        return track.album === uniqueAlbums[index];
+     }),
+    }
+    albums.push(currentAlbum);
+  }
+  return(albums)
+}
 
 /**
  * Format a list of tracks to a nice status
